@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// TODO: import components
+import UserAvatar from './components/UserAvatar';
+import Link from "./components/link/Link";
 
-const NAME = "";
+const NAME = "Adam";
 
 // Base page formatting... feel free to edit!
 const StyledApp = styled.div`
@@ -19,11 +20,26 @@ const StyledApp = styled.div`
 `
 
 function App() {
-  // TODO: fetch links from API and store them to display on our page!
+  //Fetch links from API and store them to display on page!
 
-  // TODO: finish returning
+  const [Links, setLinks] = useState([]);
+
+  function fetchLinks() {
+    fetch("http://localhost:8000/api/links")
+    .then(response => response.json())
+    .then(response => {
+      setLinks(response)
+    })
+  }
+  useEffect(() => fetchLinks(), [])
+
   return (
     <StyledApp>
+      <h1>{NAME}'s XLinks</h1>
+      <UserAvatar src="https://campusrec.unc.edu/wp-content/uploads/2015/08/image.jpg" alt="old well"/>
+      <Link url="https://cookout.com" display_name="Cookout"></Link>
+      <Link url="https://unc.edu" display_name="UNC Website"></Link>
+      
       <p>Hello, dev! We are going to create a webpage here later.</p>
     </StyledApp>
   );

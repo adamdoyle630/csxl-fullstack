@@ -23,5 +23,3 @@ def delete_db_link(id: int, db : Session) -> str:
     db.delete(db_link)
     db.commit()
     return f'Link with id {id} was deleted!'
-
-

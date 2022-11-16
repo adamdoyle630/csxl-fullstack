@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from './Link';
 import styled from 'styled-components';
+import UserAvatar from '../UserAvatar';
 
 // Helps with alignment
 const Stack = styled.div`
@@ -21,7 +22,8 @@ export default {
 const Template = args => {
     return (
         <Stack>
-            <p>Hello, welcome to Storybook! We are going to replace this with a component later. </p>
+            <Link {...args}/>
+            <UserAvatar src="https://campusrec.unc.edu/wp-content/uploads/2015/08/image.jpg" alt="old well"/>
         </Stack>
     );
 }
